@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="meme"
+            type="com.printoverit.machinetestapp.dataclasses.Meme" />
+
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:padding="5sp"
+        onclick="@{meme}"
+
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/meme_images"
+            loadImage="@{meme.url}"
+            imageResizer="@{meme}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:layout_width="0sp"
+            android:layout_height="40sp"
+            android:fontFamily="@font/mogra"
+            android:gravity="center_vertical"
+            android:maxLines="1"
+            android:paddingStart="10sp"
+            android:text="@{meme.name}"
+            android:textSize="21sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/meme_images" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
